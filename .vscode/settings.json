@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./util"
+    ],
+    "git.ignoreLimitWarning": true
+}
