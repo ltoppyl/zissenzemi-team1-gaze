@@ -1,6 +1,6 @@
 # Zissen_team1_AGE
 
-###ファイル構成のイメージ
+### ファイル構成のイメージ
 - main.py
 - get_gaze_vec.py
 - judging_out.py
@@ -12,7 +12,7 @@
 ---
 
 
-###各ファイルの用途
+### 各ファイルの用途
 【ax_gaze_estimation_functionalize.py】  
 - ax_gaze_estimation.pyを使用しやすいように関数化したもの
 - 視線のベクトルを取得する
