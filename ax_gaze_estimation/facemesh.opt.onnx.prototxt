@@ -1,0 +1,3207 @@
+ir_version: 7
+producer_name: "pytorch+onnx_optimizer"
+producer_version: "1.7+0.7"
+model_version: 0
+graph {
+  name: "torch-jit-export"
+  node {
+    input: "input"
+    output: "114"
+    name: "Pad_0"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "reflect"
+      type: STRING
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 1
+      ints: 1
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+  }
+  node {
+    input: "114"
+    input: "backbone.0.weight"
+    input: "backbone.0.bias"
+    output: "118"
+    name: "Conv_4"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "118"
+    input: "254"
+    output: "120"
+    name: "PRelu_5"
+    op_type: "PRelu"
+  }
+  node {
+    input: "120"
+    input: "backbone.2.convs.0.weight"
+    input: "backbone.2.convs.0.bias"
+    output: "121"
+    name: "Conv_6"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 16
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "121"
+    input: "backbone.2.convs.1.weight"
+    input: "backbone.2.convs.1.bias"
+    output: "122"
+    name: "Conv_7"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "122"
+    input: "120"
+    output: "123"
+    name: "Add_8"
+    op_type: "Add"
+  }
+  node {
+    input: "123"
+    input: "255"
+    output: "125"
+    name: "PRelu_9"
+    op_type: "PRelu"
+  }
+  node {
+    input: "125"
+    input: "backbone.3.convs.0.weight"
+    input: "backbone.3.convs.0.bias"
+    output: "126"
+    name: "Conv_10"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 16
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "126"
+    input: "backbone.3.convs.1.weight"
+    input: "backbone.3.convs.1.bias"
+    output: "127"
+    name: "Conv_11"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "127"
+    input: "125"
+    output: "128"
+    name: "Add_12"
+    op_type: "Add"
+  }
+  node {
+    input: "128"
+    input: "256"
+    output: "130"
+    name: "PRelu_13"
+    op_type: "PRelu"
+  }
+  node {
+    input: "130"
+    output: "132"
+    name: "MaxPool_15"
+    op_type: "MaxPool"
+    attribute {
+      name: "ceil_mode"
+      i: 0
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "130"
+    input: "backbone.4.convs.0.weight"
+    input: "backbone.4.convs.0.bias"
+    output: "134"
+    op_type: "Conv"
+    attribute {
+      name: "auto_pad"
+      s: "NOTSET"
+      type: STRING
+    }
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 16
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "132"
+    output: "133"
+    name: "Pad_16"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "constant"
+      type: STRING
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 16
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "value"
+      f: 0.0
+      type: FLOAT
+    }
+  }
+  node {
+    input: "134"
+    input: "backbone.4.convs.1.weight"
+    input: "backbone.4.convs.1.bias"
+    output: "135"
+    name: "Conv_18"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "135"
+    input: "133"
+    output: "136"
+    name: "Add_19"
+    op_type: "Add"
+  }
+  node {
+    input: "136"
+    input: "257"
+    output: "138"
+    name: "PRelu_20"
+    op_type: "PRelu"
+  }
+  node {
+    input: "138"
+    input: "backbone.5.convs.0.weight"
+    input: "backbone.5.convs.0.bias"
+    output: "139"
+    name: "Conv_21"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 32
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "139"
+    input: "backbone.5.convs.1.weight"
+    input: "backbone.5.convs.1.bias"
+    output: "140"
+    name: "Conv_22"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "140"
+    input: "138"
+    output: "141"
+    name: "Add_23"
+    op_type: "Add"
+  }
+  node {
+    input: "141"
+    input: "258"
+    output: "143"
+    name: "PRelu_24"
+    op_type: "PRelu"
+  }
+  node {
+    input: "143"
+    input: "backbone.6.convs.0.weight"
+    input: "backbone.6.convs.0.bias"
+    output: "144"
+    name: "Conv_25"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 32
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "144"
+    input: "backbone.6.convs.1.weight"
+    input: "backbone.6.convs.1.bias"
+    output: "145"
+    name: "Conv_26"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "145"
+    input: "143"
+    output: "146"
+    name: "Add_27"
+    op_type: "Add"
+  }
+  node {
+    input: "146"
+    input: "259"
+    output: "148"
+    name: "PRelu_28"
+    op_type: "PRelu"
+  }
+  node {
+    input: "148"
+    output: "150"
+    name: "MaxPool_30"
+    op_type: "MaxPool"
+    attribute {
+      name: "ceil_mode"
+      i: 0
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "148"
+    input: "backbone.7.convs.0.weight"
+    input: "backbone.7.convs.0.bias"
+    output: "152"
+    op_type: "Conv"
+    attribute {
+      name: "auto_pad"
+      s: "NOTSET"
+      type: STRING
+    }
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 32
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "150"
+    output: "151"
+    name: "Pad_31"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "constant"
+      type: STRING
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 32
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "value"
+      f: 0.0
+      type: FLOAT
+    }
+  }
+  node {
+    input: "152"
+    input: "backbone.7.convs.1.weight"
+    input: "backbone.7.convs.1.bias"
+    output: "153"
+    name: "Conv_33"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "153"
+    input: "151"
+    output: "154"
+    name: "Add_34"
+    op_type: "Add"
+  }
+  node {
+    input: "154"
+    input: "260"
+    output: "156"
+    name: "PRelu_35"
+    op_type: "PRelu"
+  }
+  node {
+    input: "156"
+    input: "backbone.8.convs.0.weight"
+    input: "backbone.8.convs.0.bias"
+    output: "157"
+    name: "Conv_36"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 64
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "157"
+    input: "backbone.8.convs.1.weight"
+    input: "backbone.8.convs.1.bias"
+    output: "158"
+    name: "Conv_37"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "158"
+    input: "156"
+    output: "159"
+    name: "Add_38"
+    op_type: "Add"
+  }
+  node {
+    input: "159"
+    input: "261"
+    output: "161"
+    name: "PRelu_39"
+    op_type: "PRelu"
+  }
+  node {
+    input: "161"
+    input: "backbone.9.convs.0.weight"
+    input: "backbone.9.convs.0.bias"
+    output: "162"
+    name: "Conv_40"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 64
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "162"
+    input: "backbone.9.convs.1.weight"
+    input: "backbone.9.convs.1.bias"
+    output: "163"
+    name: "Conv_41"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "163"
+    input: "161"
+    output: "164"
+    name: "Add_42"
+    op_type: "Add"
+  }
+  node {
+    input: "164"
+    input: "262"
+    output: "166"
+    name: "PRelu_43"
+    op_type: "PRelu"
+  }
+  node {
+    input: "166"
+    output: "168"
+    name: "MaxPool_45"
+    op_type: "MaxPool"
+    attribute {
+      name: "ceil_mode"
+      i: 0
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "166"
+    input: "backbone.10.convs.0.weight"
+    input: "backbone.10.convs.0.bias"
+    output: "170"
+    op_type: "Conv"
+    attribute {
+      name: "auto_pad"
+      s: "NOTSET"
+      type: STRING
+    }
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 64
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "168"
+    output: "169"
+    name: "Pad_46"
+    op_type: "Pad"
+    attribute {
+      name: "mode"
+      s: "constant"
+      type: STRING
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 64
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "value"
+      f: 0.0
+      type: FLOAT
+    }
+  }
+  node {
+    input: "170"
+    input: "backbone.10.convs.1.weight"
+    input: "backbone.10.convs.1.bias"
+    output: "171"
+    name: "Conv_48"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "171"
+    input: "169"
+    output: "172"
+    name: "Add_49"
+    op_type: "Add"
+  }
+  node {
+    input: "172"
+    input: "263"
+    output: "174"
+    name: "PRelu_50"
+    op_type: "PRelu"
+  }
+  node {
+    input: "174"
+    input: "backbone.11.convs.0.weight"
+    input: "backbone.11.convs.0.bias"
+    output: "175"
+    name: "Conv_51"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "175"
+    input: "backbone.11.convs.1.weight"
+    input: "backbone.11.convs.1.bias"
+    output: "176"
+    name: "Conv_52"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "176"
+    input: "174"
+    output: "177"
+    name: "Add_53"
+    op_type: "Add"
+  }
+  node {
+    input: "177"
+    input: "264"
+    output: "179"
+    name: "PRelu_54"
+    op_type: "PRelu"
+  }
+  node {
+    input: "179"
+    input: "backbone.12.convs.0.weight"
+    input: "backbone.12.convs.0.bias"
+    output: "180"
+    name: "Conv_55"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "180"
+    input: "backbone.12.convs.1.weight"
+    input: "backbone.12.convs.1.bias"
+    output: "181"
+    name: "Conv_56"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "181"
+    input: "179"
+    output: "182"
+    name: "Add_57"
+    op_type: "Add"
+  }
+  node {
+    input: "182"
+    input: "265"
+    output: "184"
+    name: "PRelu_58"
+    op_type: "PRelu"
+  }
+  node {
+    input: "184"
+    output: "186"
+    name: "MaxPool_60"
+    op_type: "MaxPool"
+    attribute {
+      name: "ceil_mode"
+      i: 0
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "184"
+    input: "backbone.13.convs.0.weight"
+    input: "backbone.13.convs.0.bias"
+    output: "187"
+    op_type: "Conv"
+    attribute {
+      name: "auto_pad"
+      s: "NOTSET"
+      type: STRING
+    }
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "187"
+    input: "backbone.13.convs.1.weight"
+    input: "backbone.13.convs.1.bias"
+    output: "188"
+    name: "Conv_62"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "188"
+    input: "186"
+    output: "189"
+    name: "Add_63"
+    op_type: "Add"
+  }
+  node {
+    input: "189"
+    input: "266"
+    output: "191"
+    name: "PRelu_64"
+    op_type: "PRelu"
+  }
+  node {
+    input: "191"
+    input: "backbone.14.convs.0.weight"
+    input: "backbone.14.convs.0.bias"
+    output: "192"
+    name: "Conv_65"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "192"
+    input: "backbone.14.convs.1.weight"
+    input: "backbone.14.convs.1.bias"
+    output: "193"
+    name: "Conv_66"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "193"
+    input: "191"
+    output: "194"
+    name: "Add_67"
+    op_type: "Add"
+  }
+  node {
+    input: "194"
+    input: "267"
+    output: "196"
+    name: "PRelu_68"
+    op_type: "PRelu"
+  }
+  node {
+    input: "196"
+    input: "backbone.15.convs.0.weight"
+    input: "backbone.15.convs.0.bias"
+    output: "197"
+    name: "Conv_69"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "197"
+    input: "backbone.15.convs.1.weight"
+    input: "backbone.15.convs.1.bias"
+    output: "198"
+    name: "Conv_70"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "198"
+    input: "196"
+    output: "199"
+    name: "Add_71"
+    op_type: "Add"
+  }
+  node {
+    input: "199"
+    input: "268"
+    output: "201"
+    name: "PRelu_72"
+    op_type: "PRelu"
+  }
+  node {
+    input: "201"
+    output: "224"
+    name: "MaxPool_90"
+    op_type: "MaxPool"
+    attribute {
+      name: "ceil_mode"
+      i: 0
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "201"
+    output: "203"
+    name: "MaxPool_74"
+    op_type: "MaxPool"
+    attribute {
+      name: "ceil_mode"
+      i: 0
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "201"
+    input: "coord_head.0.convs.0.weight"
+    input: "coord_head.0.convs.0.bias"
+    output: "225"
+    op_type: "Conv"
+    attribute {
+      name: "auto_pad"
+      s: "NOTSET"
+      type: STRING
+    }
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "201"
+    input: "conf_head.0.convs.0.weight"
+    input: "conf_head.0.convs.0.bias"
+    output: "204"
+    op_type: "Conv"
+    attribute {
+      name: "auto_pad"
+      s: "NOTSET"
+      type: STRING
+    }
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 2
+      ints: 2
+      type: INTS
+    }
+  }
+  node {
+    input: "225"
+    input: "coord_head.0.convs.1.weight"
+    input: "coord_head.0.convs.1.bias"
+    output: "226"
+    name: "Conv_92"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "204"
+    input: "conf_head.0.convs.1.weight"
+    input: "conf_head.0.convs.1.bias"
+    output: "205"
+    name: "Conv_76"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "226"
+    input: "224"
+    output: "227"
+    name: "Add_93"
+    op_type: "Add"
+  }
+  node {
+    input: "205"
+    input: "203"
+    output: "206"
+    name: "Add_77"
+    op_type: "Add"
+  }
+  node {
+    input: "227"
+    input: "273"
+    output: "229"
+    name: "PRelu_94"
+    op_type: "PRelu"
+  }
+  node {
+    input: "206"
+    input: "269"
+    output: "208"
+    name: "PRelu_78"
+    op_type: "PRelu"
+  }
+  node {
+    input: "229"
+    input: "coord_head.1.convs.0.weight"
+    input: "coord_head.1.convs.0.bias"
+    output: "230"
+    name: "Conv_95"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "208"
+    input: "conf_head.1.weight"
+    input: "conf_head.1.bias"
+    output: "209"
+    name: "Conv_79"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "230"
+    input: "coord_head.1.convs.1.weight"
+    input: "coord_head.1.convs.1.bias"
+    output: "231"
+    name: "Conv_96"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "209"
+    input: "270"
+    output: "211"
+    name: "PRelu_80"
+    op_type: "PRelu"
+  }
+  node {
+    input: "231"
+    input: "229"
+    output: "232"
+    name: "Add_97"
+    op_type: "Add"
+  }
+  node {
+    input: "211"
+    input: "conf_head.3.convs.0.weight"
+    input: "conf_head.3.convs.0.bias"
+    output: "212"
+    name: "Conv_81"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 32
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "232"
+    input: "274"
+    output: "234"
+    name: "PRelu_98"
+    op_type: "PRelu"
+  }
+  node {
+    input: "212"
+    input: "conf_head.3.convs.1.weight"
+    input: "conf_head.3.convs.1.bias"
+    output: "213"
+    name: "Conv_82"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "234"
+    input: "coord_head.2.convs.0.weight"
+    input: "coord_head.2.convs.0.bias"
+    output: "235"
+    name: "Conv_99"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 128
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "213"
+    input: "211"
+    output: "214"
+    name: "Add_83"
+    op_type: "Add"
+  }
+  node {
+    input: "235"
+    input: "coord_head.2.convs.1.weight"
+    input: "coord_head.2.convs.1.bias"
+    output: "236"
+    name: "Conv_100"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "214"
+    input: "271"
+    output: "216"
+    name: "PRelu_84"
+    op_type: "PRelu"
+  }
+  node {
+    input: "236"
+    input: "234"
+    output: "237"
+    name: "Add_101"
+    op_type: "Add"
+  }
+  node {
+    input: "216"
+    input: "conf_head.4.weight"
+    input: "conf_head.4.bias"
+    output: "217"
+    name: "Conv_85"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "237"
+    input: "275"
+    output: "239"
+    name: "PRelu_102"
+    op_type: "PRelu"
+  }
+  node {
+    input: "217"
+    input: "opt_221"
+    output: "classificators"
+    name: "Reshape_88"
+    op_type: "Reshape"
+  }
+  node {
+    input: "239"
+    input: "coord_head.3.weight"
+    input: "coord_head.3.bias"
+    output: "240"
+    name: "Conv_103"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "240"
+    input: "276"
+    output: "242"
+    name: "PRelu_104"
+    op_type: "PRelu"
+  }
+  node {
+    input: "242"
+    input: "coord_head.5.convs.0.weight"
+    input: "coord_head.5.convs.0.bias"
+    output: "243"
+    name: "Conv_105"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 32
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 1
+      ints: 1
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "243"
+    input: "coord_head.5.convs.1.weight"
+    input: "coord_head.5.convs.1.bias"
+    output: "244"
+    name: "Conv_106"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "244"
+    input: "242"
+    output: "245"
+    name: "Add_107"
+    op_type: "Add"
+  }
+  node {
+    input: "245"
+    input: "277"
+    output: "247"
+    name: "PRelu_108"
+    op_type: "PRelu"
+  }
+  node {
+    input: "247"
+    input: "coord_head.6.weight"
+    input: "coord_head.6.bias"
+    output: "248"
+    name: "Conv_109"
+    op_type: "Conv"
+    attribute {
+      name: "dilations"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+    attribute {
+      name: "group"
+      i: 1
+      type: INT
+    }
+    attribute {
+      name: "kernel_shape"
+      ints: 3
+      ints: 3
+      type: INTS
+    }
+    attribute {
+      name: "pads"
+      ints: 0
+      ints: 0
+      ints: 0
+      ints: 0
+      type: INTS
+    }
+    attribute {
+      name: "strides"
+      ints: 1
+      ints: 1
+      type: INTS
+    }
+  }
+  node {
+    input: "248"
+    input: "opt_252"
+    output: "regressors"
+    name: "Reshape_112"
+    op_type: "Reshape"
+  }
+  initializer {
+      dims: 16
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "254"
+  }
+  initializer {
+      dims: 16
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "255"
+  }
+  initializer {
+      dims: 16
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "256"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "257"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "258"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "259"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "260"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "261"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "262"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "263"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "264"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "265"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "266"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "267"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "268"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "269"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "270"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "271"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "273"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "274"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "275"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "276"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "277"
+  }
+  initializer {
+      dims: 16
+      data_type: 1
+      name: "backbone.0.bias"
+  }
+  initializer {
+      dims: 16
+      dims: 3
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.0.weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "backbone.10.convs.0.bias"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.10.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.10.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.10.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.11.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.11.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.11.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.11.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.12.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.12.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.12.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.12.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.13.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.13.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.13.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.13.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.14.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.14.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.14.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.14.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.15.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.15.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "backbone.15.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.15.convs.1.weight"
+  }
+  initializer {
+      dims: 16
+      data_type: 1
+      name: "backbone.2.convs.0.bias"
+  }
+  initializer {
+      dims: 16
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.2.convs.0.weight"
+  }
+  initializer {
+      dims: 16
+      data_type: 1
+      name: "backbone.2.convs.1.bias"
+  }
+  initializer {
+      dims: 16
+      dims: 16
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.2.convs.1.weight"
+  }
+  initializer {
+      dims: 16
+      data_type: 1
+      name: "backbone.3.convs.0.bias"
+  }
+  initializer {
+      dims: 16
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.3.convs.0.weight"
+  }
+  initializer {
+      dims: 16
+      data_type: 1
+      name: "backbone.3.convs.1.bias"
+  }
+  initializer {
+      dims: 16
+      dims: 16
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.3.convs.1.weight"
+  }
+  initializer {
+      dims: 16
+      data_type: 1
+      name: "backbone.4.convs.0.bias"
+  }
+  initializer {
+      dims: 16
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.4.convs.0.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "backbone.4.convs.1.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 16
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.4.convs.1.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "backbone.5.convs.0.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.5.convs.0.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "backbone.5.convs.1.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.5.convs.1.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "backbone.6.convs.0.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.6.convs.0.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "backbone.6.convs.1.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.6.convs.1.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "backbone.7.convs.0.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.7.convs.0.weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "backbone.7.convs.1.bias"
+  }
+  initializer {
+      dims: 64
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.7.convs.1.weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "backbone.8.convs.0.bias"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.8.convs.0.weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "backbone.8.convs.1.bias"
+  }
+  initializer {
+      dims: 64
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.8.convs.1.weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "backbone.9.convs.0.bias"
+  }
+  initializer {
+      dims: 64
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "backbone.9.convs.0.weight"
+  }
+  initializer {
+      dims: 64
+      data_type: 1
+      name: "backbone.9.convs.1.bias"
+  }
+  initializer {
+      dims: 64
+      dims: 64
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "backbone.9.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "conf_head.0.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "conf_head.0.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "conf_head.0.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "conf_head.0.convs.1.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "conf_head.1.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "conf_head.1.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "conf_head.3.convs.0.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "conf_head.3.convs.0.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "conf_head.3.convs.1.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "conf_head.3.convs.1.weight"
+  }
+  initializer {
+      dims: 1
+      data_type: 1
+      name: "conf_head.4.bias"
+  }
+  initializer {
+      dims: 1
+      dims: 32
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "conf_head.4.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "coord_head.0.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "coord_head.0.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "coord_head.0.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "coord_head.0.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "coord_head.1.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "coord_head.1.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "coord_head.1.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "coord_head.1.convs.1.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "coord_head.2.convs.0.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "coord_head.2.convs.0.weight"
+  }
+  initializer {
+      dims: 128
+      data_type: 1
+      name: "coord_head.2.convs.1.bias"
+  }
+  initializer {
+      dims: 128
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "coord_head.2.convs.1.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "coord_head.3.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 128
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "coord_head.3.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "coord_head.5.convs.0.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 1
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "coord_head.5.convs.0.weight"
+  }
+  initializer {
+      dims: 32
+      data_type: 1
+      name: "coord_head.5.convs.1.bias"
+  }
+  initializer {
+      dims: 32
+      dims: 32
+      dims: 1
+      dims: 1
+      data_type: 1
+      name: "coord_head.5.convs.1.weight"
+  }
+  initializer {
+      dims: 1404
+      data_type: 1
+      name: "coord_head.6.bias"
+  }
+  initializer {
+      dims: 1404
+      dims: 32
+      dims: 3
+      dims: 3
+      data_type: 1
+      name: "coord_head.6.weight"
+  }
+  initializer {
+      dims: 2
+      data_type: 7
+      name: "opt_252"
+  }
+  initializer {
+      dims: 2
+      data_type: 7
+      name: "opt_221"
+  }
+  input {
+    name: "input"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 3
+          }
+          dim {
+            dim_value: 192
+          }
+          dim {
+            dim_value: 192
+          }
+        }
+      }
+    }
+  }
+  output {
+    name: "regressors"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1404
+          }
+        }
+      }
+    }
+  }
+  output {
+    name: "classificators"
+    type {
+      tensor_type {
+        elem_type: 1
+        shape {
+          dim {
+            dim_value: 1
+          }
+          dim {
+            dim_value: 1
+          }
+        }
+      }
+    }
+  }
+}
+opset_import {
+  version: 10
+}
