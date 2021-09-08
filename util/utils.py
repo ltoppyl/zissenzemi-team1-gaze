@@ -69,7 +69,7 @@ def get_base_parser(
               'the files inside. File type is specified by --ftype argument')
     )
     parser.add_argument(
-        '-v', '--video', metavar='VIDEO', default=None,
+        '-v', '--video', metavar='VIDEO', default='0',
         help=('You can convert the input video by entering style image.'
               'If the int variable is given, '
               'corresponding webcam input will be used.')
