@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 
 import ailia
-import ax_gaze_estimation_utils_func as gut
+import ax_gaze_estimation.ax_gaze_estimation_utils_func as gut
 
 from util_func.utils import get_base_parser, update_parser,get_savepath  # noqa: E402
 from util_func.webcamera_utils import get_capture, get_writer  # noqa: E402
@@ -15,7 +15,6 @@ from util_func.model_utils import check_and_download_models  # noqa: E402
 # logger
 from logging import getLogger   # noqa: E402
 logger = getLogger(__name__)
-print(logger)
 
 
 # ======================
@@ -69,6 +68,7 @@ parser.add_argument(
     help='With this option, a lite version of the head pose model is used ' +
     '(only valid when --include-head-pose is specified).'
 )
+
 args = update_parser(parser)
 
 
