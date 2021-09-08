@@ -30,13 +30,7 @@
 
 ---
 
-### メモ
-【ax_gaze_estimation.pyの実行方法】  
-ax_gaze_estimation.pyのあるディレクトリへの移動  
+### 実行方法
 ```
-cd ailia_models/face_recognition/ax_gaze_estimation
-```  
-ax_gaze_estimation.pyの実行  
-```
-python3 ax_gaze_estimation.py --video 0
+python3 main.py
 ```
