@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import ailia
 import ax_gaze_estimation_utils_func as gut
-from judging_out import judging_out
+from judging_out import judging_out, output_judging_result
 
 from util_func.utils import get_base_parser, update_parser,get_savepath  # noqa: E402
 from util_func.webcamera_utils import get_capture, get_writer  # noqa: E402
@@ -397,6 +397,8 @@ def recognize_from_video():
         else:
             visual_img = frame_draw
         
+        visual_img = output_judging_result(visual_img)
+
         cv2.imshow('frame', visual_img)
 
         # save results
