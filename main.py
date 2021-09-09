@@ -1,3 +1,3 @@
-import get_gaze_vec
+import ax_gaze_estimation_func
 
-get_gaze_vec.get_gaze_vec()
+ax_gaze_estimation_func.main()
