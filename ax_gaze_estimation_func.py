@@ -1,12 +1,11 @@
 from contextlib import contextmanager
 import sys
 import time
-
 import cv2
 import numpy as np
-
 import ailia
 import ax_gaze_estimation_utils_func as gut
+from judging_out import judging_out, output_judging_result
 
 from util_func.utils import get_base_parser, update_parser,get_savepath  # noqa: E402
 from util_func.webcamera_utils import get_capture, get_writer  # noqa: E402
@@ -15,7 +14,6 @@ from util_func.model_utils import check_and_download_models  # noqa: E402
 # logger
 from logging import getLogger   # noqa: E402
 logger = getLogger(__name__)
-
 
 # ======================
 # Parameters 1
@@ -253,6 +251,9 @@ class GazeEstimator:
                 gazes = self.gaze_estimator.get_results()[0]
             with time_execution('\t\t\tpostprocessing'):
                 gazes_vec = gut.gaze_postprocess(gazes, face_affs)
+        
+        #視線がアウトかの判定
+        judging_out(gazes_vec[0][0], gazes_vec[0][1])
 
         if gazes_only:
             return gazes_vec
@@ -384,6 +385,7 @@ def recognize_from_video():
             break
 
         preds = estimator.predict(frame, gazes_only=False)
+
         if preds[0] is not None:
             frame_draw = estimator.draw(frame, *preds, draw_iris=args.draw_iris, draw_head_pose=args.draw_head_pose)
         else:
@@ -394,6 +396,8 @@ def recognize_from_video():
                                         horizontal_flip=True)
         else:
             visual_img = frame_draw
+        
+        visual_img = output_judging_result(visual_img)
 
         cv2.imshow('frame', visual_img)
 
