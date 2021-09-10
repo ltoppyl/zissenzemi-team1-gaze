@@ -1,7 +1,7 @@
 *.prototxt
 *.onnx
 .vscode
-.json
+*.json
 *.npy
 
 # Byte-compiled / optimized / DLL files

@@ -4,8 +4,8 @@ import time
 import cv2
 import numpy as np
 import ailia
-import ax_gaze_estimation_utils_func as gut
-from judging_out import judging_out, output_judging_result
+from ax_gaze_estimation import ax_gaze_estimation_utils_func as gut
+from ax_gaze_estimation.judging_out import judging_out, output_judging_result
 
 from util_func.utils import get_base_parser, update_parser,get_savepath  # noqa: E402
 from util_func.webcamera_utils import get_capture, get_writer  # noqa: E402

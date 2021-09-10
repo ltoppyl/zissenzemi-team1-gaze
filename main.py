@@ -1,3 +1,3 @@
-import ax_gaze_estimation_func
+from ax_gaze_estimation import ax_gaze_estimation_func
 
 ax_gaze_estimation_func.main()
