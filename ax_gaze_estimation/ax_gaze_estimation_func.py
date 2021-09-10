@@ -399,7 +399,7 @@ def recognize_from_video():
         
         visual_img = output_judging_result(visual_img)
 
-        cv2.imshow('frame', visual_img)
+        # cv2.imshow('frame', visual_img)
 
         # save results
         if writer is not None:

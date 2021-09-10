@@ -1,6 +1,5 @@
-global_judge = False
-
 def judging_out(x, y):
+    global global_judge
     import numpy as np
 
     if ((x < 0) and (y > 0)):
@@ -8,13 +7,16 @@ def judging_out(x, y):
     else:
         global_judge = False
 
-    print(global_judge)
+    # print(global_judge)
 
 
 def output_judging_result(visual_img):
+    print(global_judge)
     import cv2
     if global_judge == True:
-        output_img = cv2.putText(visual_img, "OUT!", (50, 50), cv2.FONT_HERSHEY_PLAIN, 100, (0, 0, 255), 4, cv2.LINE_AA)
-        return output_img
+        cv2.putText(visual_img, 'OUT!', (0, 50), cv2.FONT_HERSHEY_PLAIN, 
+                    4, (0, 0, 255), 5, cv2.LINE_AA)
+        cv2.imshow('frame', visual_img)
+
     else :
-        return visual_img
+        cv2.imshow('frame', visual_img)
