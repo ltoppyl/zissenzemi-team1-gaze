@@ -15,6 +15,10 @@ from util_func.model_utils import check_and_download_models  # noqa: E402
 from logging import getLogger   # noqa: E402
 logger = getLogger(__name__)
 
+#アウト判定用のカウンター
+JUDGE_COUNTER = 0
+JUDGE_RESULT = False
+
 # ======================
 # Parameters 1
 # ======================
@@ -255,6 +259,7 @@ class GazeEstimator:
         #視線がアウトかの判定
         judging_out(gazes_vec[0][0], gazes_vec[0][1])
 
+        
         if gazes_only:
             return gazes_vec
         else:
