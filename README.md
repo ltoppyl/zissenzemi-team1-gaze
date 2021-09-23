@@ -16,16 +16,23 @@
 > 主な機能はailia-SDKで提供されているものと同じ
 > 視線のベクトルを取得する  
 
-【get_gaze_vec.py】  
-> ax_gaze_estimation_func.pyで取得した視線のベクトルの値を取得する  
-> 取得した値をjudging_out.pyで、カンニングかどうかの判定を行う  
-
 【judgin_out.py】
-> 視線のベクトルから、アウトかどうかを判定するファイル
+> 視線のベクトルから、アウトかどうかを判定するファイル  
+> アウトと判定された時に、アウトの表示を画面に乗せる
 
 【main.py】  
 > 各要素を最終的に実行するためのファイル  
 > main.pyを実行すると、カメラが立ち上がってカンニングの判定が始まる  
+
+---
+### 実行環境の構築
+- https://github.com/axinc-ai/ailia-models
+- https://github.com/axinc-ai/ailia-models/blob/master/TUTORIAL.md  
+
+２つ目のリンクのTUTORIAL.mdを参考に、ailia SDKをinstallする。  
+途中libailia.dllのファイルの置き場所には気をつける(OSによって異なる) 。  
+TUTOIRAL.mdが完了した後、以下の方法で実行すれば動くはずです。 
+
 
 ---
 
