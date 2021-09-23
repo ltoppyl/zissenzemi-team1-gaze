@@ -25,7 +25,7 @@ def judging_out(x, y):
     
         print("x diff: ", max(judgeDatasetx) - min(judgeDatasetx))
         print("y diff: ", max(judgeDatasety) - min(judgeDatasety))
-        if ((max(judgeDatasetx) - min(judgeDatasetx)) > 0.3 ) or ((max(judgeDatasety) -min(judgeDatasety)) > 0.3):
+        if ((max(judgeDatasetx) - min(judgeDatasetx)) > 0.6 ) or ((max(judgeDatasety) -min(judgeDatasety)) > 0.5):
             global_judge = True
         else: global_judge = False
     
