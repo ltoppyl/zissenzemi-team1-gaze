@@ -13,23 +13,41 @@ def judging_out(x, y):
     datasetx.append(x)
     datasety.append(y)
 
-    print(len(datasetx))
+    if(len(datasetx) <= 100):
+        print(len(datasetx))
 
-    if len(datasetx) > 10:
-        for vecx in range(len(datasetx)-11, len(datasetx)):
-            print("vecx = " + str(vecx))
+    # ファイルへの書き込み用
+    filex = open("x.txt", "a")
+    filey = open("y.txt", "a")
+    filexx =open("xx.txt", "a")
+
+
+    second = 50
+    if len(datasetx) > second:
+        for vecx in range(len(datasetx)-(second + 1), len(datasetx)):
             judgeDatasetx.append(datasetx[vecx])
     
-        for vecy in range(len(datasety)-11, len(datasety)-1):
+        for vecy in range(len(datasety)-(second + 1), len(datasety)-1):
             judgeDatasety.append(datasety[vecy])
-    
-        print("x diff: ", max(judgeDatasetx) - min(judgeDatasetx))
+        
+        print("x diff: ", max(judgeDatasetx) - min(judgeDatasetx))       
         print("y diff: ", max(judgeDatasety) - min(judgeDatasety))
-        if ((max(judgeDatasetx) - min(judgeDatasetx)) > 0.6 ) or ((max(judgeDatasety) -min(judgeDatasety)) > 0.5):
+        filexx.write(str(x))
+        filexx.write("\n")
+        filex.write(str(max(judgeDatasetx) - min(judgeDatasetx)))
+        filex.write("\n")
+        filey.write(str(max(judgeDatasety) - min(judgeDatasety)))
+        filey.write("\n")
+        print("-----------------------------")
+        if ((max(judgeDatasetx) - min(judgeDatasetx)) > 0.4) or ((max(judgeDatasety) -min(judgeDatasety)) > 0.5):
             global_judge = True
         else: global_judge = False
     
     else: global_judge = False
+
+    filex.close()
+    filey.close()
+    filexx.close()
 
 
 def output_judging_result(visual_img):
