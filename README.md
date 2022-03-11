@@ -1,4 +1,4 @@
-# Zissen_team1_AGE
+# zissen_team1_gaze
 
 ### ファイル構成のイメージ
 - main.py
